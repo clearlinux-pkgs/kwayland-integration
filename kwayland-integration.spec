@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kwayland-integration
-Version  : 5.14.5
-Release  : 8
-URL      : https://download.kde.org/stable/plasma/5.14.5/kwayland-integration-5.14.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.5/kwayland-integration-5.14.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.5/kwayland-integration-5.14.5.tar.xz.sig
+Version  : 5.15.0
+Release  : 9
+URL      : https://download.kde.org/stable/plasma/5.15.0/kwayland-integration-5.15.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.0/kwayland-integration-5.15.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.0/kwayland-integration-5.15.0.tar.xz.sig
 Summary  : Provides integration plugins for various KDE frameworks for the wayland windowing system
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -52,14 +52,14 @@ license components for the kwayland-integration package.
 
 
 %prep
-%setup -q -n kwayland-integration-5.14.5
+%setup -q -n kwayland-integration-5.15.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546966063
+export SOURCE_DATE_EPOCH=1549984917
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -67,7 +67,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1546966063
+export SOURCE_DATE_EPOCH=1549984917
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwayland-integration
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwayland-integration/COPYING.LIB
