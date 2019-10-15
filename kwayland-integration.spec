@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kwayland-integration
-Version  : 5.16.5
-Release  : 22
-URL      : https://download.kde.org/stable/plasma/5.16.5/kwayland-integration-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/kwayland-integration-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/kwayland-integration-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 23
+URL      : https://download.kde.org/stable/plasma/5.17.0/kwayland-integration-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/kwayland-integration-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/kwayland-integration-5.17.0.tar.xz.sig
 Summary  : Provides integration plugins for various KDE frameworks for the wayland windowing system
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -52,14 +52,14 @@ license components for the kwayland-integration package.
 
 
 %prep
-%setup -q -n kwayland-integration-5.16.5
+%setup -q -n kwayland-integration-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567646510
+export SOURCE_DATE_EPOCH=1571160897
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -72,14 +72,14 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567646510
+export SOURCE_DATE_EPOCH=1571160897
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwayland-integration
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwayland-integration/COPYING.LIB
+cp %{_builddir}/kwayland-integration-5.17.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kwayland-integration/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -89,13 +89,14 @@ popd
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/xdg/kwindowsystem.kwayland.categories
+/usr/share/qlogging-categories5/kwindowsystem.kwayland.categories
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/qt5/plugins/kf5/kguiaddons/kmodifierkey/kmodifierkey_wayland.so
 /usr/lib64/qt5/plugins/kf5/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
 /usr/lib64/qt5/plugins/kf5/org.kde.kwindowsystem.platforms/KF5WindowSystemKWaylandPlugin.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kwayland-integration/COPYING.LIB
+/usr/share/package-licenses/kwayland-integration/9a1929f4700d2407c70b507b3b2aaf6226a9543c
