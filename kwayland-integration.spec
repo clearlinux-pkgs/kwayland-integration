@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kwayland-integration
-Version  : 5.24.5
-Release  : 60
-URL      : https://download.kde.org/stable/plasma/5.24.5/kwayland-integration-5.24.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.24.5/kwayland-integration-5.24.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.24.5/kwayland-integration-5.24.5.tar.xz.sig
+Version  : 5.25.0
+Release  : 61
+URL      : https://download.kde.org/stable/plasma/5.25.0/kwayland-integration-5.25.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.0/kwayland-integration-5.25.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.0/kwayland-integration-5.25.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -26,7 +26,7 @@ BuildRequires : kwayland-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(wayland-protocols)
 BuildRequires : pkgconfig(xkbcommon)
-BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-staticdev
 
 %description
@@ -59,15 +59,15 @@ license components for the kwayland-integration package.
 
 
 %prep
-%setup -q -n kwayland-integration-5.24.5
-cd %{_builddir}/kwayland-integration-5.24.5
+%setup -q -n kwayland-integration-5.25.0
+cd %{_builddir}/kwayland-integration-5.25.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1651626167
+export SOURCE_DATE_EPOCH=1655417580
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -83,14 +83,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1651626167
+export SOURCE_DATE_EPOCH=1655417580
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwayland-integration
-cp %{_builddir}/kwayland-integration-5.24.5/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kwayland-integration-5.24.5/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kwayland-integration-5.24.5/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kwayland-integration-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kwayland-integration-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwayland-integration-5.25.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kwayland-integration-5.25.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kwayland-integration-5.25.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kwayland-integration-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwayland-integration-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -104,7 +104,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/qt5/plugins/kf5/kguiaddons/kmodifierkey/kmodifierkey_wayland.so
 /usr/lib64/qt5/plugins/kf5/kwindowsystem/KF5WindowSystemKWaylandPlugin.so
 /usr/lib64/qt5/plugins/kf5/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
 
