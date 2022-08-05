@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kwayland-integration
-Version  : 5.25.3
-Release  : 64
-URL      : https://download.kde.org/stable/plasma/5.25.3/kwayland-integration-5.25.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.3/kwayland-integration-5.25.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.3/kwayland-integration-5.25.3.tar.xz.sig
+Version  : 5.25.4
+Release  : 65
+URL      : https://download.kde.org/stable/plasma/5.25.4/kwayland-integration-5.25.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.4/kwayland-integration-5.25.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.4/kwayland-integration-5.25.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -59,15 +59,15 @@ license components for the kwayland-integration package.
 
 
 %prep
-%setup -q -n kwayland-integration-5.25.3
-cd %{_builddir}/kwayland-integration-5.25.3
+%setup -q -n kwayland-integration-5.25.4
+cd %{_builddir}/kwayland-integration-5.25.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1657649186
+export SOURCE_DATE_EPOCH=1659718263
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -83,14 +83,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1657649186
+export SOURCE_DATE_EPOCH=1659718263
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwayland-integration
-cp %{_builddir}/kwayland-integration-5.25.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kwayland-integration-5.25.3/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kwayland-integration-5.25.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kwayland-integration-5.25.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kwayland-integration-5.25.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwayland-integration-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kwayland-integration-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kwayland-integration-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kwayland-integration-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kwayland-integration-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kwayland-integration/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
